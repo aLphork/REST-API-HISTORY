@@ -1,0 +1,22 @@
+
+
+
+
+
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,  -- Birincil anahtar
+    name VARCHAR(255) NOT NULL,         -- İsim
+    surname VARCHAR(255) NOT NULL       -- Soyisim
+);
+
+
+
+CREATE TABLE usersHistory (
+    id INT PRIMARY KEY AUTO_INCREMENT,     -- Birincil anahtar
+    userId INT,                           -- Yabancı anahtar
+    changeDate DATE NOT NULL,             -- Değişiklik tarihi
+    count INT NOT NULL,                   -- Sayı
+    
+    FOREIGN KEY (userId) REFERENCES users(id)  -- Yabancı anahtar ilişkisi
+);
